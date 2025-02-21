@@ -1,0 +1,23 @@
+﻿@model Progetto_BE_S2.Models.ProductsViewModel
+@{
+    ViewData["Title"] = "Vetrina Scarpe & Co";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h3 class="my-4">Vetrina Scarpe & Co</h3>
+
+<div class="row">
+    @foreach (var product in Model.Products)
+    {
+		<div class="col-md-3  ">
+            <div class="card mb-3 box-shadow">
+                <img class="card-img-top w-50 mt-3 ms-5" src="@product.CoverImage" alt="@product.Name">
+                <div class="card-body">
+                    <h4 class="card-title">@product.Name</h4>
+                    <p class="card-text">@product.Price.ToString("C")</p>
+                    <a href="@Url.Action("Details", "Product", new { id = product.Id })" class="btn btn-primary">Dettagli</a>
+                </div>
+            </div>
+        </div>
+    }
+</div>
