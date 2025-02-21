@@ -1,0 +1,43 @@
+﻿@model Progetto_BE_S2.Models.Product
+
+@{
+    ViewData["Title"] = "Aggiungi un nuovo prodotto";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Aggiungi un nuovo prodotto</h2>
+
+<form asp-action="Create" method="post">
+    <div class="form-group">
+        <label for="Name">Nome</label>
+        <input type="text" id="Name" name="Name" class="form-control" required />
+    </div>
+
+    <div class="form-group">
+        <label for="Price">Prezzo</label>
+        <input type="number" id="Price" name="Price" class="form-control" step="0.01" required />
+    </div>
+
+    <div class="form-group">
+        <label for="Description">Descrizione</label>
+        <textarea id="Description" name="Description" class="form-control" required></textarea>
+    </div>
+
+    <div class="form-group">
+        <label for="CoverImage">URL Immagine Copertina</label>
+        <input type="text" id="CoverImage" name="CoverImage" class="form-control" required />
+    </div>
+
+    <div class="form-group">
+        <label for="AdditionalImage1">URL Immagine Aggiuntiva 1</label>
+        <input type="text" id="AdditionalImage1" name="AdditionalImage1" class="form-control" />
+    </div>
+
+    <div class="form-group ">
+        <label for="AdditionalImage2">URL Immagine Aggiuntiva 2</label>
+        <input type="text" id="AdditionalImage2" name="AdditionalImage2" class="form-control" />
+    </div>
+
+    <button type="submit" class="btn btn-success mt-3 ">Aggiungi Prodotto</button>
+    <a href="@Url.Action("Index", "Product")" class="btn btn-secondary mt-3 ms-2">Annulla</a>
+</form>

@@ -5,7 +5,7 @@
 }
 
 <h3 class="my-4">Vetrina Scarpe & Co</h3>
-
+<a href="@Url.Action("Create", "Product")" class="btn btn-primary mb-3">Aggiungi Prodotto</a>
 <div class="row">
     @foreach (var product in Model.Products)
     {
@@ -16,6 +16,7 @@
                     <h4 class="card-title">@product.Name</h4>
                     <p class="card-text">@product.Price.ToString("C")</p>
                     <a href="@Url.Action("Details", "Product", new { id = product.Id })" class="btn btn-primary">Dettagli</a>
+                    <a href="@Url.Action("Delete", "Product", new { id = product.Id })" class="btn btn-danger" onclick="return confirm('Sei sicuro di voler eliminare questo prodotto?');">Elimina</a>
                 </div>
             </div>
         </div>
